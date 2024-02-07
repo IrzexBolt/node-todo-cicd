@@ -40,11 +40,12 @@ pipeline {
                     sh "docker ps"
 
                      
-                    sh "docker-compose down || true"
-                    sh "docker-compose rm -f || true"
+                    sh "docker stop $(docker ps -a -q)"
+                    sh "docker rm $(docker ps -a -q)"
 
                     // Run the new container
-                    sh "docker-compose up -d"
+                    sh "docker build . -t todo-node-app"
+                    sh "docker run -d --name node-todo-app -p 8000:8000 todo-node-app"
                 }
                 echo 'Deployment completed'
             }
