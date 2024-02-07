@@ -12,7 +12,7 @@ pipeline {
         stage("build and test") {
             steps {
                 sh "docker build -t node-app-test-new ."
-                echo 'Code build successful'
+                echo 'Code ban gaya bhai'
             }
         }
 
