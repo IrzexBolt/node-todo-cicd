@@ -38,12 +38,7 @@ pipeline {
             steps {
                 script {
                     sh "docker ps"
-
-                     
-                    sh "docker stop $(docker ps -a -q)"
-                    sh "docker rm $(docker ps -a -q)"
                     sh "docker build . -t todo-node-app"
-                    sh "docker run -d --name node-todo-app -p 8000:8000 todo-node-app"
                 }
                 echo 'Deployment completed'
             }
