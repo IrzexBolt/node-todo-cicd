@@ -39,7 +39,7 @@ pipeline {
                 script {
                     sh "docker ps"
 
-                     // Stop and remove existing containers
+                     
                     sh "docker-compose down || true"
                     sh "docker-compose rm -f || true"
 
