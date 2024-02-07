@@ -37,10 +37,8 @@ pipeline {
         stage("deploy") {
             steps {
                 script {
-                    
+                    sh "docker ps"
                     sh "docker-compose down || true"
-
-                    
                     sh "docker-compose up -d"
                 }
                 echo 'Deployment completed'
